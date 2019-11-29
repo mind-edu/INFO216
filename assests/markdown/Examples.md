@@ -267,7 +267,7 @@ import org.apache.jena.sparql.vocabulary.FOAF;
 <http://no.uib.infomedia.info216/Cade_Tracy>
         <http://no.uib.infomedia.info216/visited>
                 <http://dbpedia.org/resource/France> , <http://dbpedia.org/resource/Canada> ;
-        <http://xmlns.com/foaf/0.1/name>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
                 "Cade Tracy" .
 
 <http://dbpedia.org/resource/France>
@@ -280,27 +280,52 @@ import org.apache.jena.sparql.vocabulary.FOAF;
 ### 2.9 Reading from file
 
 ```java
-package no.uib.infomedia.sinoa.info216;
-
-import java.io.FileInputStream;
+package com.info216;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+
+import java.io.FileInputStream;
 
 public class ReadJena {
 
     public static void main(String[] args) {
         Model model = ModelFactory.createDefaultModel();
-       
+
         try {
             model.read(new FileInputStream("test.ttl"), "http://ex.org/", "TURTLE");
         } catch (Exception e) {
             // TODO: handle exception
         }
-       
+
         model.write(System.out);
     }
 }
+```
+
+输出的结果是：
+
+```
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+    xmlns:j.0="http://dbpedia.org/resource/ontology/"
+    xmlns:j.1="http://no.uib.infomedia.info216/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="http://no.uib.infomedia.info216/Cade_Tracy">
+    <vcard:FN>Cade Tracy</vcard:FN>
+    <j.1:visited rdf:resource="http://dbpedia.org/resource/Canada"/>
+    <j.1:visited>
+      <rdf:Description rdf:about="http://dbpedia.org/resource/France">
+        <j.0:populationEstimate rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >66644000</j.0:populationEstimate>
+        <rdfs:label xml:lang="no">Frankrike</rdfs:label>
+        <rdfs:label xml:lang="en">France</rdfs:label>
+        <rdfs:label xml:lang="es">Francia</rdfs:label>
+      </rdf:Description>
+    </j.1:visited>
+  </rdf:Description>
+</rdf:RDF>
 ```
 
 ### 2.10 Reading from web resource
