@@ -279,6 +279,8 @@ import org.apache.jena.sparql.vocabulary.FOAF;
 
 ### 2.9 Reading from file
 
+新建新的类文件 ReadJena.java
+
 ```java
 package com.info216;
 
@@ -330,36 +332,47 @@ public class ReadJena {
 
 ### 2.10 Reading from web resource
 
+新建新的类文件 HttpTest.java
+
 ```java
-package no.uib.infomedia.sinoa.info216;
+package com.info216;
+
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
-
 public class HttpTest {
 
     public static void main(String[] args) {
         Model model = ModelFactory.createDefaultModel();
-       
+
         try {
-            URL url = new URL("http://people.uib.no/sinoa/test.ttl");  
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection(); 
+            URL url = new URL("http://people.uib.no/sinoa/test.ttl");
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             InputStream is = urlConnection.getInputStream();
             model.read(is, "http://ex.org/", "TURTLE");
         } catch (Exception e) {
             // TODO: handle exception
         }
-       
+
         model.write(System.out);
     }
 }
 ```
 
 (There are more advanced ways to download web resources from Java, but HttpUrlConnection is a straightforward and built-in way to get started.)
+
+输出结果是：
+
+```
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+</rdf:RDF>
+```
+
 
 ## Lecture 3: SPARQL Query and Update
 
