@@ -454,22 +454,36 @@ The method dataset.getNamedModel("http://ex.org/personal#Graph"); lets you outpu
     resultSet.forEachRemaining(qsol -> System.out.println(qsol.toString()));
 ```
 
+输出的结果是 ：
+
+```
+( ?p = <http://ex.org/teaching#teaches> ) ( ?o = <http://ex.org/teaching#ECO001> ) ( ?s = <http://ex.org/teaching#cade> )
+```
+
+
 ### 3.3 Convert the ResultSet into a JSON object
 
 ```java
-    List<Map> jsonList = new Vector<Map>();
-    while (resultSet.hasNext()) {
-        QuerySolution qsol = resultSet.nextSolution();
-        Iterator<String> varNames = qsol.varNames();
-        Map<String, Object> jsonMap = new HashMap<String, Object>();
-        while (varNames.hasNext()) {
-            String varName = varNames.next();
-            jsonMap.put(varName, qsol.get(varName).toString());
+        List<Map> jsonList = new Vector<Map>();
+        while (resultSet.hasNext()) {
+            QuerySolution qsol = resultSet.nextSolution();
+            Iterator<String> varNames = qsol.varNames();
+            Map<String, Object> jsonMap = new HashMap<String, Object>();
+            while (varNames.hasNext()) {
+                String varName = varNames.next();
+                jsonMap.put(varName, qsol.get(varName).toString());
+            }
+            jsonList.add(jsonMap);
         }
-        jsonList.add(jsonMap);
-    }
-    System.out.println(JsonUtils.toPrettyString(jsonList));
+        System.out.println(jsonList);
 ```
+
+输出的结果是:
+
+```
+[{p=http://ex.org/teaching#teaches, s=http://ex.org/teaching#cade, o=http://ex.org/teaching#ECO001}]
+```
+
 
 ### 3.4 SELECT query with Query object
 
@@ -481,7 +495,16 @@ The method dataset.getNamedModel("http://ex.org/personal#Graph"); lets you outpu
             + "}");
     QueryExecution queryExecution = QueryExecutionFactory.create(query, dataset);   
     ResultSet resultSet = queryExecution.execSelect();
+    resultSet.forEachRemaining(qsol -> System.out.println(qsol.toString()));
+
 ```
+
+输出的结果是:
+
+```
+( ?p = <http://ex.org/teaching#teaches> ) ( ?o = <http://ex.org/teaching#ECO001> ) ( ?s = <http://ex.org/teaching#cade> )
+```
+
 
 ### 3.5 SELECT query from SPARQL endpoint
 
