@@ -112,24 +112,95 @@ public class HelloRDF {
         resFrance.addProperty(RDFS.label, "Francia", "es");
 ```
 
+输出的结果是:
+
+```
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+    xmlns:j.0="http://no.uib.infomedia.info216/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="http://no.uib.infomedia.info216/Cade_Tracy">
+    <j.0:visited>
+      <rdf:Description rdf:about="http://dbpedia.org/resource/France">
+        <rdfs:label xml:lang="es">Francia</rdfs:label>
+        <rdfs:label xml:lang="en">France</rdfs:label>
+        <rdfs:label xml:lang="no">Frankrike</rdfs:label>
+      </rdf:Description>
+    </j.0:visited>
+    <j.0:visited rdf:resource="http://dbpedia.org/resource/Canada"/>
+    <vcard:FN>Cade Tracy</vcard:FN>
+  </rdf:Description>
+</rdf:RDF>
+```
+
 ### 2.3 Typed literals
 
 ```java
+import org.apache.jena.datatypes.xsd.XSDDatatype;
+
+....
+
         Property propPopEst = model.createProperty(iriDbpedia + "ontology/populationEstimate");
         resFrance.addProperty(propPopEst, "66644000", XSDDatatype.XSDinteger);
+```
+
+输出结果是 :
+
+```
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+    xmlns:j.0="http://dbpedia.org/resource/ontology/"
+    xmlns:j.1="http://no.uib.infomedia.info216/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="http://no.uib.infomedia.info216/Cade_Tracy">
+    <j.1:visited>
+      <rdf:Description rdf:about="http://dbpedia.org/resource/France">
+        <j.0:populationEstimate rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >66644000</j.0:populationEstimate>
+        <rdfs:label xml:lang="es">Francia</rdfs:label>
+        <rdfs:label xml:lang="en">France</rdfs:label>
+        <rdfs:label xml:lang="no">Frankrike</rdfs:label>
+      </rdf:Description>
+    </j.1:visited>
+    <j.1:visited rdf:resource="http://dbpedia.org/resource/Canada"/>
+    <vcard:FN>Cade Tracy</vcard:FN>
+  </rdf:Description>
+</rdf:RDF>
 ```
 
 ### 2.4 Looping through statements
 
 ```java
+import org.apache.jena.rdf.model.Statement;
+
+...
+
         for (Statement stmt : model.listStatements().toList()) {
             System.out.println(stmt.toString());
         }
 ```
 
+输出的结果是：
+
+```
+[http://no.uib.infomedia.info216/Cade_Tracy, http://no.uib.infomedia.info216/visited, http://dbpedia.org/resource/France]
+[http://no.uib.infomedia.info216/Cade_Tracy, http://no.uib.infomedia.info216/visited, http://dbpedia.org/resource/Canada]
+[http://no.uib.infomedia.info216/Cade_Tracy, http://www.w3.org/2001/vcard-rdf/3.0#FN, "Cade Tracy"]
+[http://dbpedia.org/resource/France, http://dbpedia.org/resource/ontology/populationEstimate, "66644000"^^http://www.w3.org/2001/XMLSchema#integer]
+[http://dbpedia.org/resource/France, http://www.w3.org/2000/01/rdf-schema#label, "Francia"@es]
+[http://dbpedia.org/resource/France, http://www.w3.org/2000/01/rdf-schema#label, "France"@en]
+[http://dbpedia.org/resource/France, http://www.w3.org/2000/01/rdf-schema#label, "Frankrike"@no]
+```
+
 ### 2.5 Selecting statements
 
 ```java
+import org.apache.jena.rdf.model.RDFNode;
+
+...
+
         for (Statement stmt : model
                 .listStatements((Resource)null, RDFS.label, (RDFNode)null)
                 .toList()) {
@@ -139,9 +210,27 @@ public class HelloRDF {
         }
 ```
 
+输出的结果是：
+```
+Subject:   http://dbpedia.org/resource/France
+Predicate: http://www.w3.org/2000/01/rdf-schema#label
+Object:    Francia@es
+Subject:   http://dbpedia.org/resource/France
+Predicate: http://www.w3.org/2000/01/rdf-schema#label
+Object:    France@en
+Subject:   http://dbpedia.org/resource/France
+Predicate: http://www.w3.org/2000/01/rdf-schema#label
+Object:    Frankrike@no
+```
+
 ### 2.6 Using a selector
 
 ```java
+import org.apache.jena.rdf.model.SimpleSelector;
+import org.apache.jena.sparql.vocabulary.FOAF;
+
+...
+
         for (Statement stmt : model
                 .listStatements(new SimpleSelector() {
                     public boolean test(Statement s) {
@@ -153,6 +242,13 @@ public class HelloRDF {
         }
 ```
 
+输出的结果是 :
+
+```
+没有输出结果来
+```
+
+
 ### 2.7 Writing to file
 
 ```java
@@ -162,6 +258,8 @@ public class HelloRDF {
             // TODO: handle exception
         }
 ```
+
+运行成功了，但是路径好像不太对的
 
 ### 2.8 Contents of **test.ttl**
 

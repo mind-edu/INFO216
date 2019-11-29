@@ -1,0 +1,11 @@
+<http://no.uib.infomedia.info216/Cade_Tracy>
+        <http://no.uib.infomedia.info216/visited>
+                <http://dbpedia.org/resource/France> , <http://dbpedia.org/resource/Canada> ;
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Cade Tracy" .
+
+<http://dbpedia.org/resource/France>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Francia"@es , "France"@en , "Frankrike"@no ;
+        <http://dbpedia.org/resource/ontology/populationEstimate>
+                66644000 .
