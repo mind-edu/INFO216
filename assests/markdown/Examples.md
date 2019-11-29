@@ -378,19 +378,50 @@ public class HttpTest {
 
 ### 3.1 Basic INSERT DATA update
 
-```java
-		Dataset dataset = DatasetFactory.create();
-		
-		UpdateAction.parseExecute(""
-				+ "PREFIX info216: <http://ex.org/teaching#>"
-				+ "INSERT DATA {"
-				+ "    info216:cade info216:teaches info216:ECO001 . "
-				+ "    GRAPH <http://ex.org/personal#Graph> {"
-				+ "        info216:cade info216:age '29' . "
-				+ "    }"
-				+ "}", dataset);
+新建一个 HelloSPARQL.java 文件 :
 
-		RDFDataMgr.write(System.out, dataset, Lang.TRIG);
+```java
+package com.info216;
+
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.DatasetFactory;
+import org.apache.jena.update.UpdateAction;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.Lang;
+
+public class HelloSPARQL {
+
+    public static void main(String[] args){
+
+
+        Dataset dataset = DatasetFactory.create();
+
+        UpdateAction.parseExecute(""
+                + "PREFIX info216: <http://ex.org/teaching#>"
+                + "INSERT DATA {"
+                + "    info216:cade info216:teaches info216:ECO001 . "
+                + "    GRAPH <http://ex.org/personal#Graph> {"
+                + "        info216:cade info216:age '29' . "
+                + "    }"
+                + "}", dataset);
+
+        RDFDataMgr.write(System.out, dataset, Lang.TRIG);
+
+    }
+}
+```
+
+输出的结果是:
+
+```
+<http://ex.org/teaching#cade>
+        <http://ex.org/teaching#teaches>
+                <http://ex.org/teaching#ECO001> .
+
+<http://ex.org/personal#Graph> {
+    <http://ex.org/teaching#cade>
+            <http://ex.org/teaching#age>  "29" .
+}
 ```
 
 To output only the default graph use:
@@ -400,6 +431,15 @@ To output only the default graph use:
 ```
 
 The method dataset.getNamedModel("http://ex.org/personal#Graph"); lets you output a named model instead.
+
+只输出结果是:
+
+```
+<http://ex.org/teaching#cade>
+        <http://ex.org/teaching#teaches>
+                <http://ex.org/teaching#ECO001> .
+```
+
 
 ### 3.2 Basic SELECT query
 
