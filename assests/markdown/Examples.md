@@ -525,6 +525,8 @@ If a named graph in your dataset has a triple with a subject that is a DBpedia I
     }
 ```
 
+没有输出结果的
+
 ### 3.6 Basic ASK query
 
 ```java
