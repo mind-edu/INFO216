@@ -2,10 +2,9 @@ package com.info216;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.vocabulary.VCARD.*;
-import org.apache.jena.vocabulary.VCARD;
 import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.VCARD;
 
 public class HelloRDF {
     public static void main(String[] args) {
@@ -19,6 +18,6 @@ public class HelloRDF {
         Property propVisited = model.createProperty(iriBase + "visited");
         resCadeTracy.addProperty(propVisited, resCanada);
         resCadeTracy.addProperty(propVisited, resFrance);
-        model.write(System.out, "TURTLE");
+        model.write(System.out);
     }
 }

@@ -62,30 +62,47 @@ public class HelloJena {
 ### 2.1 Resource objects
 
 ```java
-package no.uib.infomedia.info216;
+package com.info216;
 
-...
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.VCARD;
 
-public class HelloJena {
+public class HelloRDF {
     public static void main(String[] args) {
         String iriBase = "http://no.uib.infomedia.info216/";
         String iriDbpedia = "http://dbpedia.org/resource/";
-       
         Model model = ModelFactory.createDefaultModel();
-       
         Resource resCadeTracy = model.createResource(iriBase + "Cade_Tracy");
-        resCadeTracy.addLiteral(FOAF.name, "Cade Tracy");
-       
+        resCadeTracy.addLiteral(VCARD.FN, "Cade Tracy");
         Resource resCanada = model.createResource(iriDbpedia + "Canada");
         Resource resFrance = model.createResource(iriDbpedia + "France");
         Property propVisited = model.createProperty(iriBase + "visited");
         resCadeTracy.addProperty(propVisited, resCanada);
         resCadeTracy.addProperty(propVisited, resFrance);
-
-        model.write(System.out, "TURTLE");
+        model.write(System.out);
     }
 }
 ```
+
+运行结果说明 :
+
+```
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+    xmlns:j.0="http://no.uib.infomedia.info216/">
+  <rdf:Description rdf:about="http://no.uib.infomedia.info216/Cade_Tracy">
+    <j.0:visited rdf:resource="http://dbpedia.org/resource/France"/>
+    <j.0:visited rdf:resource="http://dbpedia.org/resource/Canada"/>
+    <vcard:FN>Cade Tracy</vcard:FN>
+  </rdf:Description>
+</rdf:RDF>
+```
+
+> 说明
 
 ### 2.2 Language-tagged literals
 
