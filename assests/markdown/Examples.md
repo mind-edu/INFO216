@@ -537,6 +537,12 @@ If a named graph in your dataset has a triple with a subject that is a DBpedia I
     System.out.println("The result is " + res);
 ```
 
+运行的结果是:
+
+````
+The result is false
+````
+
 ### 3.7 ASK query from IRL
 
 ```java
@@ -550,6 +556,11 @@ If a named graph in your dataset has a triple with a subject that is a DBpedia I
     System.out.println("The result is " + res);
 ```
 
+输出的结果是:
+```
+The result is true
+```
+
 ### 3.8 Basic DESCRIBE query
 
 ```java
@@ -558,6 +569,8 @@ If a named graph in your dataset has a triple with a subject that is a DBpedia I
             + "", dataset).execDescribe();
     franceModel.write(System.out, "TURTLE");
 ```
+
+没有输出结果
 
 ### 3.9 Basic CONSTRUCT query
 
@@ -568,6 +581,8 @@ If a named graph in your dataset has a triple with a subject that is a DBpedia I
             + "}", dataset).execConstruct();
     franceModel.write(System.out, "TURTLE");
 ```
+
+没有输出结果
 
 ### 3.10 CONSTRUCT query from IRL
 
@@ -580,6 +595,53 @@ If a named graph in your dataset has a triple with a subject that is a DBpedia I
             + "}").execConstruct();
     franceModel.write(System.out, "TURTLE");
 ```
+
+输出的结果如下：
+
+```
+<http://dbpedia.org/resource/Russia>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Russia"@en ;
+        <http://dbpedia.org/ontology/populationTotal>
+                144192450 .
+
+<http://dbpedia.org/resource/San_Marino>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "San Marino"@en ;
+        <http://dbpedia.org/ontology/populationTotal>
+                32576 .
+
+<http://dbpedia.org/resource/Estonia>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Estonia"@en ;
+        <http://dbpedia.org/ontology/populationTotal>
+                1311759 .
+
+<http://dbpedia.org/resource/Austria>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Austria"@en ;
+        <http://dbpedia.org/ontology/populationTotal>
+                8662588 .
+
+<http://dbpedia.org/resource/Republic_of_Ireland>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Republic of Ireland"@en ;
+        <http://dbpedia.org/ontology/populationTotal>
+                4635400 .
+
+<http://dbpedia.org/resource/Vatican_City>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Vatican City"@en ;
+        <http://dbpedia.org/ontology/populationTotal>
+                842 .
+
+<http://dbpedia.org/resource/Liechtenstein>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Liechtenstein"@en ;
+        <http://dbpedia.org/ontology/populationTotal>
+                37340 .
+```
+输出的结果很多的，这里只是部分数据的，仅供参考的
 
 ### 3.11 Complex SPARQL predicates (Fuseki)
 
