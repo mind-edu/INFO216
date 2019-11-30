@@ -17,27 +17,27 @@
         - [2.2	Language-tagged literals](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#22-language-tagged-literals)
         - [2.3	Typed literals](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#23-typed-literals)
         - [2.4	Looping through statements](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#24-looping-through-statements)
-        - 2.5	Selecting statements
-        - 2.6	Using a selector
-        - 2.7	Writing to file
-        - 2.8	Contents of test.ttl
-        - 2.9	Reading from file
-        - 2.10	Reading from web resource
-    - 3	Lecture 3: SPARQL Query and Update
-        - 3.1	Basic INSERT DATA update
-        - 3.2	Basic SELECT query
-        - 3.3	Convert the ResultSet into a JSON object
-        - 3.4	SELECT query with Query object
-        - 3.5	SELECT query from SPARQL endpoint
-        - 3.6	Basic ASK query
-        - 3.7	ASK query from IRL
-        - 3.8	Basic DESCRIBE query
-        - 3.9	Basic CONSTRUCT query
-        - 3.10	CONSTRUCT query from IRL
-        - 3.11	Complex SPARQL predicates (Fuseki)
-        - 3.12	SPARQL SELECT VALUES (and services)
-        - 3.13	Language-tagged literals (and functions, and services...)
-        - 3.14	Explanation of table.forEachRemaining(...)
+        - [2.5	Selecting statements](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#25-selecting-statements)
+        - [2.6	Using a selector](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#26-using-a-selector)
+        - [2.7	Writing to file](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#27-writing-to-file)
+        - [2.8	Contents of test.ttl](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#28-contents-of-testttl)
+        - [2.9	Reading from file](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#29-reading-from-file)
+        - [2.10	Reading from web resource](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#210-reading-from-web-resource)
+    - [3	Lecture 3: SPARQL Query and Update](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#lecture-3-sparql-query-and-update)
+        - [3.1	Basic INSERT DATA update](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#31-basic-insert-data-update)
+        - [3.2	Basic SELECT query](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#32-basic-select-query)
+        - [3.3	Convert the ResultSet into a JSON object](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#33-convert-the-resultset-into-a-json-object)
+        - [3.4	SELECT query with Query object](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#34-select-query-with-query-object)
+        - [3.5	SELECT query from SPARQL endpoint](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#35-select-query-from-sparql-endpoint)
+        - [3.6	Basic ASK query](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#36-basic-ask-query)
+        - [3.7	ASK query from IRL](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#37-ask-query-from-irl)
+        - [3.8	Basic DESCRIBE query](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#38-basic-describe-query)
+        - [3.9	Basic CONSTRUCT query](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#39-basic-construct-query)
+        - [3.10	CONSTRUCT query from IRL](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#310-construct-query-from-irl)
+        - [3.11	Complex SPARQL predicates (Fuseki)](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#311-complex-sparql-predicates-fuseki)
+        - [3.12	SPARQL SELECT VALUES (and services)](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#312-sparql-select-values-and-services)
+        - [3.13	Language-tagged literals (and functions, and services...)](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#313-language-tagged-literals-and-functions-and-services)
+        - [3.14	Explanation of table.forEachRemaining(...)](https://github.com/mind-edu/INFO216/blob/master/assests/markdown/Examples.md#314-explanation-of-tableforeachremaining)
     - 4	Lecture 4: TDB and Fuseki
         - 4.1	Creating a dataset
         - 4.2	Creating/loading a TDB-backed dataset
