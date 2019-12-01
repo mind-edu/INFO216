@@ -486,6 +486,7 @@ The method dataset.getNamedModel("http://ex.org/personal#Graph"); lets you outpu
 [{p=http://ex.org/teaching#teaches, s=http://ex.org/teaching#cade, o=http://ex.org/teaching#ECO001}]
 ```
 
+> 从 3.2 Basic SELECT query 得到的结果转换为 JSON
 
 ### 3.4 SELECT query with Query object
 
@@ -506,7 +507,7 @@ The method dataset.getNamedModel("http://ex.org/personal#Graph"); lets you outpu
 ```
 ( ?p = <http://ex.org/teaching#teaches> ) ( ?o = <http://ex.org/teaching#ECO001> ) ( ?s = <http://ex.org/teaching#cade> )
 ```
-
+> 从 3.2 Basic SELECT query 的查询结果用 Query object 查询
 
 ### 3.5 SELECT query from SPARQL endpoint
 
