@@ -451,6 +451,7 @@ The method dataset.getNamedModel("http://ex.org/personal#Graph"); lets you outpu
             + "}", dataset)
         .execSelect();
 
+    // jdk 1.8 forEachRemaining lamada表达式
     resultSet.forEachRemaining(qsol -> System.out.println(qsol.toString()));
 ```
 
@@ -460,6 +461,7 @@ The method dataset.getNamedModel("http://ex.org/personal#Graph"); lets you outpu
 ( ?p = <http://ex.org/teaching#teaches> ) ( ?o = <http://ex.org/teaching#ECO001> ) ( ?s = <http://ex.org/teaching#cade> )
 ```
 
+> 说明：
 
 ### 3.3 Convert the ResultSet into a JSON object
 
