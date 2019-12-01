@@ -23,6 +23,9 @@ public class HelloSPARQL {
 
         RDFDataMgr.write(System.out, dataset, Lang.TRIG);
 
+        // TURTLE 格式输出
+        dataset.getDefaultModel().write(System.out, "TURTLE");
+
         ResultSet resultSet = QueryExecutionFactory
                 .create(""
                         + "SELECT ?s ?p ?o WHERE {"
@@ -30,6 +33,7 @@ public class HelloSPARQL {
                         + "}", dataset)
                 .execSelect();
 
+        // 打印的是匹配 TURTLE 形式的数据的，而且匹配了 "." 符号的
         resultSet.forEachRemaining(qsol -> System.out.println(qsol.toString()));
 
     }

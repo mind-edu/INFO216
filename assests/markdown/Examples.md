@@ -432,7 +432,7 @@ To output only the default graph use:
 
 The method dataset.getNamedModel("http://ex.org/personal#Graph"); lets you output a named model instead.
 
-只输出结果是:
+输出结果是:
 
 ```
 <http://ex.org/teaching#cade>
@@ -461,7 +461,7 @@ The method dataset.getNamedModel("http://ex.org/personal#Graph"); lets you outpu
 ( ?p = <http://ex.org/teaching#teaches> ) ( ?o = <http://ex.org/teaching#ECO001> ) ( ?s = <http://ex.org/teaching#cade> )
 ```
 
-> 说明：
+> 说明：dataset.getDefaultModel().write(System.out, "TURTLE"); 对于这个进行匹配，然后得到查询结果的。
 
 ### 3.3 Convert the ResultSet into a JSON object
 
